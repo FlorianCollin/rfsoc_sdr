@@ -5,6 +5,8 @@ This project is part of an internship project conducted at the Instituto de Tele
 
 ## ACKNOWLEDGMENT
 
+I'd like to thank the strath-sdr lab and their documentation/open source project on RFSoC, which was a great learning support for the realization of this project.
+
 * [strath-sdr](https://github.com/strath-sdr)
 * [Commpy](https://github.com/veeresht/CommPy)
 * [PYNQ](ttps://pynq.readthedocs.io/en/latest)
@@ -17,7 +19,7 @@ Steps :
 * unzip it
 * Flash the SD card with the PYNQ image (e.g., using Balena Etcher).
 * Set the board switches for SD card usage, SW6 : (OFF = 1 = High, ON = 0 = Low) SD = OFF, OFF, OFFF, ON = 1110.!
-* <img src="pictures/sw6.png" alt="SW6" width="50"/>
+* <img src="pictures/sw6.png" alt="SW6" width="100"/>
 * Insert the card into your board.
 * Plug the board to your Computer (ethernet cable).
 * Start the board.
