@@ -1,8 +1,7 @@
 # RFSoC SDR
 RFSoC SDR is an embedded lab for the [ZCU111 development board](https://www.xilinx.com/products/boards-and-kits/zcu111.html). It allows easy manipulation of 5 DACs and 1 ADC of the RFSoC by exploring operating modes and configuration parameters (Real, IQ, Sampling Rate, NCO, Interpolation, Decimation, Nyquist Zone, ...).
 
-This project is part of an internship project conducted at the Instituto de Telecomunicações, Universidade de
-Aveiro, Campus Universitário de Santiago 3810 - 193 Aveiro, Portugal.
+This project is part of an internship project conducted at the Instituto de Telecomunicações, Universidade de Aveiro, Campus Universitário de Santiago 3810 - 193 Aveiro, Portugal.
 
 ## ACKNOWLEDGMENT
 
