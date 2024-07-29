@@ -25,7 +25,16 @@ Steps :
 WARNING: If you want the board to access the internet or you want to access it remotely in a lab, please consult your network supervisor.
 * If you can't connect in this way, connect a usb cable (micro usb to usb) between the board and your computer and open a serial link terminal (e.g. with putty) with a baud rate of 115200 on one of the three COM ports (see /dev/ttyUSBx). You can then find out the correct ip with ifconfig cmd. (you can change the static ip [here](https://pynq.readthedocs.io/en/v2.7.0/appendix/assign_a_static_ip.html))
 * Download this repository.
-* Upload the rfsoc_sdr sub-folder tp Jupyter and open the notebook file to experiment.
+* Upload the rfsoc_sdr sub-folder tp Jupyter.
+  
+
+## Installing Dependencies
+
+To update `numpy`, `scipy`, and `matplotlib`, and install `plotly` and `commpy`, run the following command:
+
+```bash
+pip install --upgrade numpy scipy matplotlib plotly scikit-commpy
+```
 
 ## Important note
 
