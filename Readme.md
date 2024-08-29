@@ -35,12 +35,16 @@ WARNING: If you want the board to access the internet or you want to access it r
 To update `numpy`, `scipy`, and `matplotlib`, and install `plotly` and `commpy`, run the following command:
 
 ```bash
-pip install --upgrade numpy scipy matplotlib plotly scikit-commpy
+pip install scikit-commpy
 ```
 
 ## Important note
 
 If you're using a loopback, you may need to add an attenuator (e.g. -5db).
+
+## BUG LIST:
+
+* If you use DDR at the maximum frequency of 6144 MHZ, you'll have unknown disturbances on your signal (work in progress). At 5734.4 MHz there's no such problem.
 
 ## Resources
 
