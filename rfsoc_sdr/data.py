@@ -134,29 +134,29 @@ def LPF(signal, fc, Fs):
 
 #     return data, rrc_filter, normalization_factor
 
-def mat_to_numpy(file_path):
-    """
-    Load a .mat file containing a complex array and convert it to a numpy array.
+# def mat_to_numpy(file_path): NOT WORKING PLEASE SEE README
+#     """
+#     Load a .mat file containing a complex array and convert it to a numpy array.
     
-    Parameters:
-    file_path (str): Path to the .mat file.
+#     Parameters:
+#     file_path (str): Path to the .mat file.
     
-    Returns:
-    numpy.ndarray: Numpy array containing the complex data.
-    """
-    # Load the .mat file
-    mat_data = loadmat(file_path)
+#     Returns:
+#     numpy.ndarray: Numpy array containing the complex data.
+#     """
+#     # Load the .mat file
+#     mat_data = loadmat(file_path)
     
-    complex_array = None
-    for key, value in mat_data.items():
-        if np.iscomplexobj(value):
-            complex_array = np.array(value, dtype=np.complex_)
-            break
+#     complex_array = None
+#     for key, value in mat_data.items():
+#         if np.iscomplexobj(value):
+#             complex_array = np.array(value, dtype=np.complex_)
+#             break
     
-    if complex_array is None:
-        raise ValueError("No complex array found in the .mat file.")
+#     if complex_array is None:
+#         raise ValueError("No complex array found in the .mat file.")
     
-    return complex_array
+#     return complex_array
 
 
 def complex_to_dc_32bits_format(complex_array):

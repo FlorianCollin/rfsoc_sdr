@@ -40,8 +40,44 @@ pip install scikit-commpy
 
 ## Important note
 
-If you're using a loopback, you may need to add an attenuator (e.g. -5db).
+* If you're using a loopback, you may need to add an attenuator (e.g. -5db).
 
+* If you want to use a file from matlab, you must register it following the logic of this function :
+
+```matlab
+% create_txt_file_for_rfsoc(waveform)
+%
+% waveform must be a nx1 matrix
+function create_txt_file_for_rfsoc(waveform)
+
+
+max_abs_value = max(abs(waveform));
+scaled_signal = int16(waveform / max_abs_value * 32767);
+wav_ampDiffs_fi = fi(scaled_signal,1,16,0);
+fid = fopen('dados_100M_sps4.txt', 'w'); % Creat/open for writing
+for i = 1 : size(scaled_signal,1)
+    for j = 1 : size(scaled_signal,2)
+        re_aux = wav_ampDiffs_fi(i,j); % Save in auxiliar variableschac
+        fprintf(fid, '%s', ["0x",re_aux.hex(8:11),re_aux.hex(1:4),","]); % Write data in binary
+    end
+    fprintf(fid,'\n');
+end
+fclose(fid);
+
+end
+```
+
+And retrieve the data from python using the `read_hex_file_to_numpy_array` function inside `data.py`
+
+```python
+def read_hex_file_to_numpy_array(`ile_path):
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+    data = [int(line.strip().rstrip(','), 16) for line in lines]
+    numpy_array = np.array(data, dtype=np.uint32)
+
+    return numpy_array
+```
 ## BUG LIST:
 
 * If you use DDR at the maximum frequency of 6144 MHZ, you'll have unknown disturbances on your signal (work in progress). At 5734.4 MHz there's no such problem.
@@ -52,7 +88,9 @@ There are two folders: the `rfsoc_sdr` folder contains the source code and the b
 
 ## Code Documentation
 
-Most functions are documented via a docstring or comments, so I'd advise you to look at the source code, as it's pretty straightforward. What's more, the best source of documentation will be the commented examples in notebook form that come with the source code. You can also go directly to the PYNQ source code, and in particular the RF Data Converter configuration methods ([xrfdc](https://github.com/Xilinx/PYNQ/tree/master/sdbuild/packages/xrfdc/package)).
+* Most functions are documented via a docstring or comments, so I'd advise you to look at the source code, as it's pretty straightforward. What's more, the best source of documentation will be the commented examples in notebook form that come with the source code. You can also go directly to the PYNQ source code, and in particular the RF Data Converter configuration methods ([xrfdc](https://github.com/Xilinx/PYNQ/tree/master/sdbuild/packages/xrfdc/package)).
+
+* Please note that if you wish to modify the architecture, I advise you to create your own class using mine, copying and pasting key elements and reusing functions from the `dc.py` file.
 
 ## License
 
