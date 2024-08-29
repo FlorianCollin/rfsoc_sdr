@@ -40,6 +40,8 @@ pip install scikit-commpy
 
 ## Important note
 
+* WARNING : By default, the configuration is set to arbitrary values. Always start by setting the DAC to the values you need!
+
 * If you're using a loopback, you may need to add an attenuator (e.g. -5db).
 
 * If you want to use a file from matlab, you must register it following the logic of this function :

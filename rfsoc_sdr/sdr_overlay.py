@@ -63,6 +63,8 @@ class SdrOverlay(Overlay):
         self.rfdc.dac_tiles[1].DynamicPLLConfig(1, self.ref_clock, Fs_dac_tile_1)
         self.rfdc.adc_tiles[0].DynamicPLLConfig(1, self.ref_clock, Fs_adc_tile_0)
 
+        ## WARNING : By default, the configuration is set to arbitrary values. Always start by setting the DAC to the values you need!
+
         # DACs
         # TILE 0
         for dac in self.dacs_tile0:
