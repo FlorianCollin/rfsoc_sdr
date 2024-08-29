@@ -32,8 +32,6 @@ WARNING: If you want the board to access the internet or you want to access it r
 
 ## Installing Dependencies
 
-To update `numpy`, `scipy`, and `matplotlib`, and install `plotly` and `commpy`, run the following command:
-
 ```bash
 pip install scikit-commpy
 ```
